@@ -1,4 +1,3 @@
-// Your code goes here
 
 //FOOOTER COPY WARNING
 
@@ -124,4 +123,74 @@ signUpButton1.addEventListener('dblclick', () => {
 
 //declaration of variables 
 
-const 
+const home = document.querySelector('.intro');
+
+// event listener
+document.addEventListener('keydown', function(event) {
+    if (event.code === 'KeyZ'){
+        home.style.backgroundColor = '#FF004D';
+    }
+});
+
+
+//SCALE PAGE WITH WHEEL
+
+//declaration of variables 
+
+const fun = document.querySelector('.content-section.inverse-content .img-content');
+
+let scale = 5;
+
+//event listener 
+
+fun.addEventListener('wheel', event => {
+    event.preventDefault();
+
+    scale += event.deltaY * -0.01;
+  
+    scale = Math.min(Math.max(.125, scale), 4);
+  
+    fun.style.transform = `scale(${scale})`;
+
+});
+
+
+
+//ANIMATE NAV BUTTONS WITH MOUSEENTER
+
+//declaration of variables 
+
+const navButtons = document.querySelector('a');
+
+const navBar = document.querySelector('nav');
+
+const newNavButton = document.createElement('a');
+
+newNavButton.innerHTML = `<a class="nav-link" href="#">GET DISCOUNT</a>`;
+
+
+
+navButtons.addEventListener("mouseenter", (e) => {
+
+    e.target.style.color = "maroon";
+    e.target.style.fontWeight = "bolder";
+    navBar.appendChild(newNavButton);
+
+    setTimeout(function(){
+        e.target.style.color = "";
+        e.target.style.fontWeight = "";
+
+    }, 5000);
+ }, false);
+
+
+
+//CHANGE NAV HEADER BACKGROUND 
+
+//declare variables 
+ const newHeader = document.querySelector('.main-navigation');
+
+ //event listener
+ newHeader.addEventListener('click', (e) => {
+     e.target.style.backgroundColor = 'pink';
+ })
